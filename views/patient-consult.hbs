@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>View Account Information</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="web-container">
+            <div class="account-container">
+                <div>
+                    <div class="flextri">
+                        <img src="/img/picture.png" style="width: 200px; height: 200px; border-radius: 50%;">
+                    </div>
+                    <div class="name">{{ name }}</div>
+                    <a href="/patient/home"><button>Home</button></a>
+                    <a href="/patient/{{ link }}"><button>Patient Information</button></a>
+                    <a href="/patient/logout"><button>Logout</button></a>
+                </div>
+            </div>
+
+            <div style="width: 100%;"> <!-- Account -->
+                <header class="flextri"><h1>{{ doctor }}</h1></header>
+                <div class="content-container">
+                    <div class="search-container">
+                        <label for="find-pat">Search </label>
+                        <input type="text" id="find-pat" name="find-pat">
+                        <!-- <input type="submit" class="button" value="Search"/> -->
+                    </div>
+                    <div class="home-container">
+                        <div>
+                            {{#each posts}}
+                            <div class="consult-container">
+                                <h3>{{ title }}</h3>
+                                <p>{{ date }}</p> <br>
+                                <p>
+                                    {{ info }}
+                                </p>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>

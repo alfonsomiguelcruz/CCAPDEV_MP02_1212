@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{{ name }}</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="web-container"> <!-- Flexbox for Account and Info -->
+            <div class="account-container"> <!-- Info -->
+                <div>
+                    <div style="display: flex; align-items: center; justify-content: center;">
+                        <img src="/img/picture.png" style="width: 200px; height: 200px; border-radius: 50%;">
+                    </div>
+                    <div class="name">Dr. {{ name }}</div>
+                    <a href="/doctor/home"><button>Home</button></a>
+                    <a href="/doctor/{{ link }}"><button>Doctor Information</button></a>
+                    <a href="/doctor/add-consult"><button>Add Consultation</button></a>
+                    <a href="/doctor/invite"><button>Invite Patients</button></a>
+                    <a href="/doctor/logout"><button>Logout</button></a>
+                </div>
+                
+            </div>
+
+            <div style="width: 100%;"> <!-- Account -->
+                <header class="flextri"><h1>Home</h1></header>
+                <div class="content-container">
+                    <div class="search-container">
+                        <label for="find-pat">Search </label>
+                        <input type="text" id="find-pat" name="find-pat">
+                        <!-- <input type="submit" class="button" value="Search"/> -->
+                    </div>
+                    <div class="home-container">
+                        <div>
+                            <div class="addcon-container">
+                                <div>{{ p_fname }} {{ p_mname }} {{ p_lname }}</div>
+                                <div>Birthdate: {{ p_bday }} </div>
+                                <div>Address: {{ p_address }}</div>
+                                <div> {{ p_email }} </div> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>

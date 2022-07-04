@@ -1,0 +1,69 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Montserrat";
+}
+
+.information {
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+input {
+    width: 300px;
+    height: 20px;
+}
+
+input.login-input{
+    width: 400px;
+    height: 20px;
+}
+
+.input-info {
+    justify-content: space-around;
+}
+
+h2 {
+    margin: 25px auto 25px;
+}
+
+h1 {
+    color: white;
+}
+
+h1.reg-title {
+    color: black;
+    text-align: center;
+}
+
+.flextri {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(165, 0, 0);
+    margin: 0px 15px 20px 15px;
+    height: 20px;
+}
+
+.val-error {
+    font-weight: 600;
+    font-size: 14px;
+    color: rgb(165, 0, 0);
+    margin: 14px 14px 14px 0px;
+    height: 14px;
+}
+
+.input-title {
+    font-size: 16px;
+    font-weight: 600;
+}

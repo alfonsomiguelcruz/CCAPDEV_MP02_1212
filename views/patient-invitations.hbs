@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>View Account Information</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+    </head>
+
+    <body>
+        <div class="web-container">
+            <div class="account-container">
+                <div>
+                    <div class="flextri">
+                        <img src="/img/picture.png" style="width: 200px; height: 200px; border-radius: 50%;">
+                    </div>
+                    <div class="name">{{ name }}</div>
+                    <a href="/patient/home"><button>Home</button></a>
+                    <a href="/patient/{{ link }}"><button>Patient Information</button></a>
+                    <a href="/patient/logout"><button>Logout</button></a>
+                </div>
+                
+            </div>
+
+            <div style="width: 100%;">
+                <header class="flextri"><h1>Doctor Invitations</h1></header>
+                <div class="content-container">
+                    <div class="search-container">
+                        <label for="find-pat"><strong>Search</strong> </label>
+                        <input type="text" id="find-doc" name="find-pat">
+                    </div>
+                    <div class="home-container">
+                        <div>
+                            {{#each invitations}}
+                            <div class="person-container">
+                                <h3>Dr. {{ d_fname }} {{ d_lname}}</h3>
+                                <p>{{ off_address }}</p>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>

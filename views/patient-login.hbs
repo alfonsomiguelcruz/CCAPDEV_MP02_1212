@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Patient Login</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+        
+        <style>
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+
+            nav > a {
+                color: black;
+                text-decoration: underline;
+            }
+        </style>
+    </head>
+
+    <body>
+        {{> header}}
+
+        <div class="login-container">
+            <div>
+                <div class="login-title">LOG-IN</div>
+                <form action="/patient/check" method="post">
+                    <div class="information">
+                        <div class="subtitle">E - mail</div>
+                        <input class="login-input" type="email" id="p_email" name="p_email">
+                    </div>
+
+                    <div class="information">
+                        <div class="subtitle">Password</div>
+                        <input class="login-input" type="password" id="p_password" name="p_password">
+                    </div>
+
+                    <div class="error">{{ error }}</div>
+
+                    <input type="submit" class="button" value="Login">
+                </form>
+                
+                <nav>
+                    <a href="/forgotpass"><div>Forgot Password?</div></a>
+                    <a href="/patient/register"><div>Register Account</div></a>
+                </nav>
+            </div>
+        </div>
+
+        {{> footer}}
+    </body>
+</html>

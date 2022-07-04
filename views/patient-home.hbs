@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Main Page</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/patient-search.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="web-container">
+            <div class="account-container">
+                <div>
+                    <div class="flextri">
+                        <img src="/img/picture.png" style="width: 200px; height: 200px; border-radius: 50%;">
+                    </div>
+                    <div class="name">{{ name }}</div>
+                    <a href="/patient/home"><button>Home</button></a>
+                    <a href="/patient/{{ link }}"><button>Patient Information</button></a>
+                    <a href="/patient/logout"><button>Logout</button></a>
+                </div>
+                
+            </div>
+
+            <div style="width: 100%;">
+                <header class="flextri"><h1>Home</h1></header>
+                <div class="content-container">
+                    <div class="search-container">
+                        <label for="find-doc"><strong>Search</strong> </label>
+                        <input type="text" id="find-doc" name="find-doc">
+                    </div>
+                    <div class="home-container">
+                        <div id="content">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer></footer>
+    </body>
+</html>

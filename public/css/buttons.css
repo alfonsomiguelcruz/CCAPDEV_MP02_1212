@@ -1,0 +1,28 @@
+button, input.button {
+    background-color: #0368FF;
+    color: white;
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
+    margin-bottom: 50px;
+    box-shadow: 0px 5px 3px #0050c7;
+    border: none;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+button:hover, input.button:hover {
+    background-color: #0050c7;
+}

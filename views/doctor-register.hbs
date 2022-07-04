@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Doctor Registration</title>
+        <link rel="stylesheet" media="all" href="../css/all.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/header-footer.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/containers.css" type="text/css">
+		<link rel="stylesheet" media="all" href="../css/buttons.css" type="text/css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="/js/validator.min.js" type="text/javascript"></script>
+        <script src="/js/doctor-register.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        {{> header}}
+        
+        <h2>DOCTOR REGISTRATION</h2>
+        <div class="flextri">
+            <div class="registration-container">
+                <form action="/doctor/register" method="post">
+                    <div>
+                        <h2>Basic Doctor Information</h2>
+                        <section class="test">
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div class="input-title">First Name</div>
+                                    <input type="text" id="d_fname" name="d_fname">
+                                    <br> <span class="val-error" id="d_fname_error">{{ d_fname_error }}</span>
+                                </div>
+                                <div class="input-section">
+                                    <div>Birthday</div>
+                                    <input type="date" id="d_bday" name="d_bday">
+                                    <br> <span class="val-error" id="d_bday_error">{{ d_bday_error }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div>Middle Name</div>
+                                    <input type="text" id="d_mname" name="d_mname">
+                                    <br> <span class="val-error" id="d_mname_error">{{ d_mname_error }}</span>
+                                </div>
+                                <div class="input-section">
+                                    <div>Sex</div>
+                                    <select id="d_sex" name="d_sex">
+                                        <option value="M">Male</option>
+                                        <option value="F">Female</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div>Last Name</div>
+                                    <input type="text" id="d_lname" name="d_lname">
+                                    <br> <span class="val-error" id="d_lname_error">{{ d_lname_error }}</span>
+                                </div>
+                                <div class="input-section">
+                                    <div>Address</div>
+                                    <input type="text" id="d_address" name="d_address">
+                                    <br> <span class="val-error" id="d_address_error">{{ d_address_error }}</span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <h2>Medical Information</h2>
+                        <section class="test">
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div>Titles</div>
+                                    <input type="text" id="titles" name="titles">
+                                    <br> <span class="val-error" id="titles_error">{{ titles_error }}</span>
+                                </div>
+                                <div class="input-section">
+                                    <div>Specializations</div>
+                                    <input type="text" id="specs" name="specs">
+                                    <br> <span class="val-error" id="specs_error">{{ specs_error }}</span>
+                                </div>
+                            </div>
+                            
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div>Doctor ID</div>
+                                    <input type="text" id="docid" name="docid">
+                                    <br> <span class="val-error" id="docid_error">{{ docid_error }}</span>
+                                </div>
+                                <div class="input-section">
+                                    <div>Office Address</div>
+                                    <input type="text" id="off_address" name="off_address">
+                                    <br> <span class="val-error" id="off_address_error">{{ off_address_error }}</span>
+                                </div>
+                            </div>
+
+                            <div class="subsection-container">
+                                <div class="input-section">
+                                    <div>Email</div>
+                                    <input type="email" id="d_email" name="d_email">
+                                    <br> <span class="val-error" id="d_email_error">{{ d_email_error }}</span>
+                                </div>
+                                
+                                <div class="input-section">
+                                    <div>Password</div>
+                                    <input type="password" id="d_password" name="d_password">
+                                    <br> <span class="val-error" id="d_password_error">{{ d_password_error }}</span>
+                                </div>
+                            </div>
+                        </section>
+                        
+                        <div class="flextri">
+                            <input type="submit" class="button" id="submit" value="Register">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        {{> footer}}
+    </body>
+</html>
