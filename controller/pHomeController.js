@@ -40,25 +40,30 @@ const patientHomeController = {
         }
     },
 
+    initPosts: (req, res) => {
+        if(req.session.pemail)
+            db.findOne(Patient, {p_email: req.session.pemail}, '', (patient) => {
+                if(patient) {
+                    db.find(Record, {patient: patient._id}, '',(records) => {
+                        if(records)
+                            res.status(200).send(records);
+                    });
+                }
+            });
+    },
+
     getPosts: (req, res) => {
-        db.find(Doctor, {$or:[{d_fname: req.body.query},
-            {d_mname: req.body.query},
-            {d_lname: req.body.query}]}, '', (doctor) => {
+        db.find(Doctor, {_id: req.body.query}, '', (doctor) => {
             if(doctor) {
                 db.findOne(Patient, {p_email: req.session.pemail}, '', (patient) => {
                     if(patient) {
                         db.find(Record, {patient: patient._id, doctor: doctor._id}, (records) => {
-                            var postRecords = [{
-                                link: '/patient/' + doctor._id,
-                                name: doctor.d_fname + ' ' + doctor.d_lname,
-                                date: records.date
-                            }];
-                            res.send(200, postRecords);
+                            if(records)
+                                res.status(200).send(records);
                         });
                     }
                 });
-            } else
-                res.send(200, doctor);                
+            }               
         });
     }
 };

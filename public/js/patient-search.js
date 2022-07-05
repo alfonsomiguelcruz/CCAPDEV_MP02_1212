@@ -1,28 +1,32 @@
 $(document).ready(() => {
-    function designContainer (link, name, add, parentDiv) {
-        var refr = document.createElement('a');
+    function designContainer (name, add, parentDiv) {
+        // var refr = document.createElement('a');
         var cont = document.createElement('div');
         var pati = document.createElement('h3');
         var cons = document.createElement('p');
 
-        $(refr).attr("href", link);
+        // $(refr).attr("href", link);
         $(cont).addClass("person-container");
         $(pati).text(name);
         $(cons).text('Last Consulted: ' + add);
 
         cont.append(pati);
         cont.append(cons);
-        refr.append(cont);
-        parentDiv.append(refr);
+        // refr.append(cont);
+        parentDiv.append(cont);
     }
 
-    function getPosts () {
+    function initPosts () {
         var container = $('#content');
 
-        $.get('/patient/posts', (data, status) => {
-            data.forEach((item, i) => {
-                designContainer(item.link, item.name, item.address, container);
-            });
+        $.get('/patient/posts/init', {}, (data, status) => {
+            if(data.length === 0) {
+                $('#content-msg').text("No Doctor Found.");
+            } else {
+                for(var i = 0; i < data.length; i++) {
+                    designContainer(data[i].doctor, data[i].date, container);
+                }
+            }
         });
     }
 
@@ -31,11 +35,15 @@ $(document).ready(() => {
         var container = $('#content');
 
         $.get('/patient/posts', {query: query}, (data, status) => {
-            data.forEach((item, i) => {
-                designContainer(item.link, item.name, item.address, container);
-            });
+            if(data.length === 0) {
+                $('#content-msg').text("No Dcctor Found.");
+            } else {
+                for(var i = 0; i < data.length; i++) {
+                    designContainer(data[i].doctor, data[i].date, container);
+                }
+            }
         });
     });
 
-    getPosts();
+    initPosts();
 })

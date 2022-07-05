@@ -58,6 +58,8 @@ router.get('/doctor/add-consult', dConsultController.getAddConsult);
 
 router.post('/doctor/add-consult', dConsultController.postConsult);
 
+router.get('/doctor/posts/init', dHomeController.initPosts);
+
 router.get('/doctor/posts', dHomeController.getPosts);
 
 router.get('/doctor/invite', dInviteController.getInvite);
@@ -68,9 +70,11 @@ router.get('/doctor/logout', dLogoutController.getDoctorLogout);
 
 router.get('/patient/home', pHomeController.getHome);
 
+router.get('/patient/posts/init', pHomeController.initPosts);
+
+router.get('/patient/posts', pHomeController.getPosts);
+
 router.get('/patient/logout', pLogoutController.getPatientLogout);
-
-
 
 router.get('/doctor/:link', dHomeController.getProfile);
 

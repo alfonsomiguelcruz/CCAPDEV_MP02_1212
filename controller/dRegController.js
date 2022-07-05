@@ -10,9 +10,6 @@ const doctorRegisterController = {
         res.render('doctor-register');
     },
 
-    /* TODO: Check if a doctor with the same id
-            OR email exists before adding in the DB
-    */
    postDoctorRecord: (req, res) => {
         var errors = validationResult(req);
         

@@ -1,13 +1,9 @@
 const controller = {
-    getFavicon: (req, res) => {
-        res.status(204);
-    },
-
     getIndex: (req, res) => {
-        console.log("PAGE-CONTROLLER: " + req.session.d_email);
-
-        if(req.session.d_email)
+        if(req.session.email)
             res.redirect('/doctor/home');
+        else if (req.session.pemail)
+            res.redirect('/patient/home');
         else {
             res.status(200);
             res.render('index');
@@ -15,8 +11,10 @@ const controller = {
     },
 
     getForgotPass: (req, res) => {
-        if(req.session.d_email)
+        if(req.session.email)
             res.redirect('/doctor/home');
+        else if (req.session.pemail)
+            res.redirect('/patient/home');
         else
             res.render('forgot-password');
     }

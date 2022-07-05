@@ -4,15 +4,13 @@ const Doctor = require('../models/Doctor.js');
 
 const doctorLoginController = {
     getDoctorLogin: (req, res) => {
-        // console.log(req.session);
-        // if(req.session.email) {
-        //     db.findOne(Doctor, {d_email: req.session.email}, '', (result) => {
-        //         if(result) {
-
-        //             res.redirect(307, '/doctor/home');
-        //         }
-        //     });
-        // } else
+        console.log(req.session);
+        if(req.session.email) {
+            db.findOne(Doctor, {d_email: req.session.email}, '', (result) => {
+                if(result)
+                    res.redirect(307, '/doctor/home');
+            });
+        } else
             res.render('doctor-login');        
     },
 

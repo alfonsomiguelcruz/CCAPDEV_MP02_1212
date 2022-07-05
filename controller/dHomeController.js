@@ -41,26 +41,30 @@ const doctorHomeController = {
         }
     },
 
+    initPosts: (req, res) => {
+        if(req.session.email)
+            db.findOne(Doctor, {d_email: req.session.email}, '', (doctor) => {
+                if(doctor) {
+                    db.find(Record, {doctor: doctor._id}, '',(records) => {
+                        if(records)
+                            res.status(200).send(records);
+                    });
+                }
+            });
+    },
+
     getPosts: (req, res) => {
-        db.find(Patient, {$or:[{p_fname: req.body.query},
-            {p_mname: req.body.query},
-            {p_lname: req.body.query}]}, '', (patient) => {
+        db.find(Patient, {_id: req.body.query}, '', (patient) => {
             if(patient) {
                 db.findOne(Doctor, {d_email: req.session.email}, '', (doctor) => {
                     if(doctor) {
                         db.find(Record, {patient: patient._id, doctor: doctor._id}, (records) => {
-                            var postRecords = records;
-                            var finalRecords = [{
-                                link: '/doctor/' + patient.p_fname + '-' + patient.p_lname,
-                                name: patient.p_fname + ' ' + patient.p_lname,
-                                date: postRecords.date
-                            }];
-                            res.send(200, postRecords);
+                            if(records)
+                                res.status(200).send(records);
                         });
                     }
                 });
-            } else
-                res.send(200, patient);                
+            }                
         });
     },
 };

@@ -10,9 +10,6 @@ const patientRegisterController = {
         res.render('patient-register');
     },
 
-    /* TODO: Check if a patient with the same id
-            OR email exists before adding in the DB
-    */
     postPatientRegister: (req, res) => {
         var errors = validationResult(req);
 
